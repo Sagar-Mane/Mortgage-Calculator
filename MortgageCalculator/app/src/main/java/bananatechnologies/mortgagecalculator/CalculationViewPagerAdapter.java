@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 /**
  * @author Sagar Mane
  * @version 1.0
+ * Don't modify this class.
  */
 
 public class CalculationViewPagerAdapter extends FragmentPagerAdapter {

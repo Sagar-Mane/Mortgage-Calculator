@@ -23,8 +23,6 @@ public class MainActivity extends AppCompatActivity {
         adpter=new CalculationViewPagerAdapter(getSupportFragmentManager());
         vp.setAdapter(adpter);
 
-
-        //
         // Give the PagerSlidingTabStrip the ViewPager
         PagerSlidingTabStrip tabsStrip = (PagerSlidingTabStrip) findViewById(R.id.tabs);
         // Attach the view pager to the tab strip

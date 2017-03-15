@@ -66,7 +66,6 @@
                 android:layout_alignBaseline="@+id/city_label"
                 android:layout_alignBottom="@+id/city_label"
                 android:layout_alignParentEnd="true"
-                android:layout_alignStart="@+id/editText"
                 android:ems="6"
                 android:inputType="text"
                 android:maxLength="100" />
@@ -202,7 +201,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_below="@+id/loan"
-                android:ems="7" />
+                android:ems="7"
+                android:inputType="numberDecimal"/>
 
             <EditText
                 android:id="@+id/down_payment"
@@ -221,7 +221,8 @@
                 android:layout_alignBottom="@+id/apr_label"
                 android:layout_alignStart="@+id/zipcode"
                 android:layout_marginStart="65dp"
-                android:layout_alignParentEnd="true"/>
+                android:layout_alignParentEnd="true"
+                android:inputType="numberDecimal"/>
 
             <EditText
                 android:id="@+id/terms"

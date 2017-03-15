@@ -1,5 +1,7 @@
 package bananatechnologies.mortgagecalculator;
 
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -8,6 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+
+import org.json.JSONException;
+
+import java.io.IOException;
+import java.util.List;
 
 /**
  * @author Sagar Mane
@@ -30,6 +37,9 @@ public class CalculationViewFragment extends android.support.v4.app.Fragment{
     EditText apr;
     EditText terms;
 
+    double Loan_amount;
+    double Apr;
+    Float sagar;
     Button save;
     Button reset;
     Button calculate;
@@ -69,6 +79,18 @@ public class CalculationViewFragment extends android.support.v4.app.Fragment{
         apr=(EditText)rootview.findViewById(R.id.apr);
         terms=(EditText)rootview.findViewById(R.id.terms);
 
+
+        try{
+            Loan_amount=Double.parseDouble(loan_amount.getText().toString());
+            Apr=Double.parseDouble(apr.getText().toString());
+            sagar=Float.parseFloat(loan_amount.getText().toString());
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+
         //all buttons
 
         save=(Button) rootview.findViewById(R.id.save_button);
@@ -85,7 +107,12 @@ public class CalculationViewFragment extends android.support.v4.app.Fragment{
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                save_data();
+                try {
+                    save_data(prop_type.getText().toString(),address.getText().toString(),city.getText().toString(),
+                            loan_amount.getText().toString(),apr.getText().toString());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
         });
         reset.setOnClickListener(new View.OnClickListener() {
@@ -100,8 +127,39 @@ public class CalculationViewFragment extends android.support.v4.app.Fragment{
     public void calculate_mortgage(){
         Log.i(TAG,"Calculate pressed "+prop_type.getText());
     }
-    public void save_data(){
+
+    /**
+     * Used to Save Property data. It also calculates latitude and longitude from the address string.
+     * @param type  (Property type)
+     * @param prop_address
+     * @param city
+     * @param loan_amount
+     * @param apr
+     * @throws JSONException
+     */
+    public void save_data(String type,String prop_address, String city, String loan_amount, String apr) throws JSONException {
         Log.i(TAG,"Save button pressed ");
+        String patta="101 E San Fernando St";
+        Geocoder coder=new Geocoder(getContext());
+        List<Address> address;
+        double lat=0,lng=0;
+        try {
+            address=coder.getFromLocationName(patta,5);
+            if(address==null){
+                Log.i(TAG,"Address is null");
+            }
+            Address location=address.get(0);
+            lat=location.getLatitude();
+            lng=location.getLongitude();
+        }
+        catch (IOException ex){
+            ex.printStackTrace();
+        }
+        Log.i(TAG,"Location found");
+        Log.i(TAG,"Latitude= "+lat+"Longitude= "+lng);
+        PropertyData newProperty=new PropertyData(type,prop_address,city,loan_amount,apr,lat,lng);
+        newProperty.toJSON();
+
     }
 
 }
