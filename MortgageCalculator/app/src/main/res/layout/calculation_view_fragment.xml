@@ -1,11 +1,259 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
-        android:id="@+id/start"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Calculation view fragment"
-        android:textSize="25dp"/>
-</LinearLayout>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:id="@+id/property_info">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="703dp">
+
+            <TextView
+                android:id="@+id/property"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="29dp"
+                android:layout_marginTop="25dp"
+                android:text="Property Info"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/type_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/property"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="15dp"
+                android:text="Prop Type"
+                android:textSize="18dp" />
+
+
+            <TextView
+                android:id="@+id/address_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/type_label"
+                android:layout_below="@+id/type_label"
+                android:layout_marginTop="28dp"
+                android:text="Street Address"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/city_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/address_label"
+                android:layout_below="@+id/address_label"
+                android:layout_marginTop="29dp"
+                android:text="City"
+                android:textSize="18dp" />
+
+            <EditText
+                android:id="@+id/city"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/city_label"
+                android:layout_alignBottom="@+id/city_label"
+                android:layout_alignParentEnd="true"
+                android:layout_alignStart="@+id/editText"
+                android:ems="6"
+                android:inputType="text"
+                android:maxLength="100" />
+
+            <TextView
+                android:id="@+id/state_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/city_label"
+                android:layout_below="@+id/city_label"
+                android:layout_marginTop="30dp"
+                android:text="State"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/zipcode_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/state_label"
+                android:layout_below="@+id/state_label"
+                android:layout_marginTop="31dp"
+                android:text="Zipcode"
+                android:textSize="18dp" />
+
+            <EditText
+                android:id="@+id/zipcode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/zipcode_label"
+                android:layout_alignBottom="@+id/zipcode_label"
+                android:layout_alignParentEnd="true"
+                android:layout_alignStart="@+id/city"
+                android:ems="5"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/city"
+                android:layout_alignParentEnd="true"
+                android:ems="10"
+                android:inputType="textPostalAddress" />
+
+            <TextView
+                android:id="@+id/loan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/reset_button"
+                android:layout_below="@+id/zipcode"
+                android:layout_marginTop="35dp"
+                android:text="Loan Info"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/loan_amount_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/loan"
+                android:layout_below="@+id/loan"
+                android:layout_marginTop="17dp"
+                android:text="Loan Amount"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/down_payment_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/loan_amount_label"
+                android:layout_below="@+id/loan_amount_label"
+                android:layout_marginTop="26dp"
+                android:text="Down Payment"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/apr_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/down_payment_label"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="25dp"
+                android:text="APR"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/terms_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/apr_label"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="25dp"
+                android:text="Terms"
+                android:textSize="18dp" />
+
+            <Button
+                android:id="@+id/reset_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignStart="@+id/zipcode_label"
+                android:layout_marginBottom="20dp"
+                android:background="@color/colorPrimaryDark"
+                android:text="Reset"
+                android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/save_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/reset_button"
+                android:layout_alignBottom="@+id/reset_button"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="19dp"
+                android:background="@color/colorPrimaryDark"
+                android:text="Save"
+                android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/calculate_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/reset_button"
+                android:layout_alignBottom="@+id/reset_button"
+                android:layout_centerHorizontal="true"
+                android:background="@color/colorPrimaryDark"
+                android:text="Calculate"
+                android:textColor="#FFFFFF" />
+
+            <EditText
+                android:id="@+id/loan_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/loan"
+                android:ems="7" />
+
+            <EditText
+                android:id="@+id/down_payment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="5"
+                android:layout_alignParentEnd="true"
+                android:layout_alignBottom="@+id/down_payment_label"
+                android:layout_alignStart="@+id/loan_amount" />
+            <EditText
+                android:id="@+id/apr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="4"
+                android:layout_alignBaseline="@+id/apr_label"
+                android:layout_alignBottom="@+id/apr_label"
+                android:layout_alignStart="@+id/zipcode"
+                android:layout_marginStart="65dp"
+                android:layout_alignParentEnd="true"/>
+
+            <EditText
+                android:id="@+id/terms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="5"
+                android:layout_alignBaseline="@+id/terms_label"
+                android:layout_alignBottom="@+id/terms_label"
+                android:layout_alignStart="@+id/down_payment"
+                android:layout_alignParentEnd="true"/>
+            <EditText
+                android:id="@+id/state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="5"
+                android:layout_alignBaseline="@+id/state_label"
+                android:layout_alignBottom="@+id/state_label"
+                android:layout_alignStart="@+id/city"
+                android:layout_marginStart="13dp"
+                android:layout_alignParentEnd="true"/>
+            <EditText
+                android:id="@+id/property_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="5"
+                android:layout_alignBaseline="@+id/type_label"
+                android:layout_alignBottom="@+id/type_label"
+                android:layout_alignStart="@+id/address"
+                android:layout_alignParentEnd="true"/>
+
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</ScrollView>
