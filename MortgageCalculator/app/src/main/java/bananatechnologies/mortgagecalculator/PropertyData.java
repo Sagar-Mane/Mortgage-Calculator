@@ -1,14 +1,27 @@
 package bananatechnologies.mortgagecalculator;
 
+import android.database.sqlite.SQLiteCursorDriver;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+
+import android.database.sqlite.SQLiteQuery;
 import android.util.Log;
 
 import org.json.JSONException;
+
+import static android.content.Context.MODE_PRIVATE;
 
 /**
  * @author Sagar Mane.
  */
 
 public class PropertyData {
+
+    SQLiteDatabase myDB= null;
+    String TableName = "myTable";
+    String Data="";
 
     private String Type;
     private String Address;
@@ -17,6 +30,7 @@ public class PropertyData {
     private String Apr;
     private double Monthly_payment;
     private double Latitude;
+
     private double Longitude;
 
     private static final String TAG = "Property";
@@ -101,8 +115,10 @@ public class PropertyData {
     }
     //call JsonCreator method toJSON to convert current prop object into json.
     public void toJSON() throws JSONException {
-        Log.i(TAG,"INside properties");
-        String json=JsonCreator.toJSON(this);
-        JsonCreator.printJSON(json);
+            Log.i(TAG,"INside properties");
+            String json=JsonCreator.toJSON(this);
+            //JsonCreator.printJSON(json);
+
+
     }
 }

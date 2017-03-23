@@ -22,7 +22,8 @@ public class CalculationViewPagerAdapter extends FragmentPagerAdapter {
             case 0: // Fragment # 0 - This will show FirstFragment
                 return CalculationViewFragment.newInstance(0, "Calculation");
             case 1: // Fragment # 0 - This will show FirstFragment different title
-                return MapsViewFragment.newInstance(1, "Maps");
+                return new MapsActivity();
+
 
             default:
                 return null;
